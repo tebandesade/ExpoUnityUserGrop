@@ -20,7 +20,8 @@ Please
 * npm install  (this means you need npm)
 * npm start (you are running a server, if errors regarding packages please just install them)
 * cd front_end
-* yarn install (but first you need to have react install) 
+* yarn install (but first you need to have react install)
+* yarn start 
 
 ## Author
 Yours' truely Esteban Galvis
