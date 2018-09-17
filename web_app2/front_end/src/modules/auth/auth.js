@@ -22,12 +22,6 @@ class Popup extends React.Component {
     alert('A name was submitted: ' + this.state.valueCorreo);
     event.preventDefault();
   }
-  componentDidUpdate(){
-  fetch("localhost:3001/participantes?{this.state}")
-  .then((response) => {
-    console.log(response)
-    return response.json()
-})}
 
   render() {
     return (
