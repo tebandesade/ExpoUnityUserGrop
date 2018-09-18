@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Container, Row, Col, Button,Form, FormGroup, Label, Input} from 'reactstrap';
 import './auth.css';
+import axios from 'axios';
 
 class Popup extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class Popup extends React.Component {
     this.state = {valueCorreo: '',
                   valuePass: ''};
 
+    this.toggle_form = this.toggle_form.bind(this);
     this.handleChangeCorreo = this.handleChangeCorreo.bind(this);
     this.handleChangePass = this.handleChangePass.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,10 +20,62 @@ class Popup extends React.Component {
     handleChangePass(event) {
     this.setState({valuePass: event.target.value});
   }
+
+     toggle_form = (event) => {
+       event.preventDefault();
+      axios.get('http://localhost:3001/participantes',{ params:{
+        correo: this.state.valueCorreo,
+        pass: this.state.valuePass
+      }})
+      .then(response => {
+        console.log('axioos: ', response)
+        if(response.data.length===0)
+        {
+          alert('No existe el correo, o la contaseña está mal')
+        }
+        else{
+        this.props.handleSubmit(response)
+        return response
+        }
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+    }
+
+  //MACHETAZO NO SE INCLUYE ACA SINO EN PADRE
     handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.valueCorreo);
-    event.preventDefault();
+
+    //fetch(`http://localhost:3001/participantes?correo=${this.state.valueCorreo}&pass=${this.state.valuePass}`,{mode:'no-cors'})
+   //.then((response) => {
+   // console.log('componentDidUpdate')
+    //console.log(response)
+   //})
+      event.preventDefault();
+      axios.get('http://localhost:3001/participantes',{ params:{
+        correo: this.state.valueCorreo,
+        pass: this.state.valuePass
+      }})
+      .then(response => {
+        console.log('axioos: ', response.data)
+        return response
+      })
+      .then(function(response){
+
+        console.log("second callback response> ",response)
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  
   }
+
+  componentDidUpdate(){
+   if(this.state.valueCorreo!=='' && this.state.valuePass!==''){
+   
+  }}
+
 
   render() {
     return (
@@ -33,7 +87,7 @@ class Popup extends React.Component {
               </Col>
         </Row>
         <Container className='formulario'>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.toggle_form}>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
           <Label for="exampleEmail" className="mr-sm-1">Correo</Label>
           <Input value={this.state.valueCorreo} onChange={this.handleChangeCorreo} type="email" name="email" id="exampleEmail" placeholder="abc@gmail.com" />
@@ -57,8 +111,10 @@ class Auth extends Component {
   constructor(props) {
     super(props);
      this.togglePopup = this.togglePopup.bind(this);
+     this.formSubmit = this.formSubmit.bind(this);  
         this.state = {
-      showPopup: false
+      showPopup: false,
+      data:''
     };
    
     }
@@ -67,6 +123,37 @@ class Auth extends Component {
       showPopup: !this.state.showPopup
     });
   }
+      formSubmit = (filterValue) =>  {
+        console.log('formu submiit')
+        this.setState({showPopup:false,
+                      data: filterValue.data});
+        console.log(this.state)
+      
+    }
+
+/*
+formSubmit(e){
+ e.preventDefault();
+ this.formSubmit = this.formSubmit.bind(this)
+   axios.get('http://localhost:3001/participantes',{ params:{
+        correo: e.target[0].value,
+        pass: e.target[1].value
+      }})
+      .then(response => {
+       console.log('axioos: ', response.data)
+        return response
+      })
+      .then(function(response){
+        console.log("second callback response> ",response)
+          this.setState({showPopup:false,
+                         data:response.data})
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+
+}
+*/
   
   render() {
     return (
@@ -87,6 +174,7 @@ class Auth extends Component {
           <Popup
             text='Autentíquese'
             closePopup={this.togglePopup.bind(this)}
+            handleSubmit={this.formSubmit.bind(this)}
           />
           : null
         }

@@ -6,6 +6,7 @@ import Auth from './modules/auth/auth.js'
 import logo from './logo.svg';
 import './App.css';
 
+import axios from 'axios';
 
 class App extends Component {
 
@@ -22,11 +23,13 @@ class App extends Component {
       }
     }
 
-
+  
   render() {
-    return (
+    return ( 
+
       <div className="App">
         <Header tabFunc={this.whichTab}></Header>
+
         <Content dataTab={this.state.tab}></Content>
         <Auth></Auth>
         <p className="App-intro">
