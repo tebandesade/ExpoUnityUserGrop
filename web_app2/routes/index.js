@@ -228,6 +228,35 @@ getConsulta((data) =>
 });
 
 
+router.put('/updateProject', function(req,res){
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+console.log("reqrq: ");
+// Connection URLconsole.log("reqrq: ", req.params.id)
+const url = 'mongodb://localhost:27017';
+console.log("reqrq: ", req.body)
+// Database Name
+const dbName = 'unityusergroup';
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server");
 
+  const db = client.db(dbName);
+
+  const col = db.collection('proyectos');
+    
+  console.log(req.query)
+    // Update a single document
+    col.updateOne({'id':parseInt(req.body.data.id)}, {$set: {'descripcion': req.body.data.descripcion}}, function(err, r) {
+     if (err) throw err;
+    console.log("1 document updated");
+    client.close();
+    });
+
+
+  });
+res.sendData('hihihi')
+});
 
 module.exports = router;

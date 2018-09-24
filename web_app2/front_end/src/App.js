@@ -3,10 +3,8 @@ import React, { Component } from 'react';
 import Header from './modules/header/header.js'
 import Content from './modules/content/content.js'
 import Auth from './modules/auth/auth.js'
-import logo from './logouug.png';
 import './App.css';
 
-import axios from 'axios';
 
 class App extends Component {
 
