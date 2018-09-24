@@ -12,7 +12,6 @@ class Popup extends React.Component {
     this.toggle_form = this.toggle_form.bind(this);
     this.handleChangeCorreo = this.handleChangeCorreo.bind(this);
     this.handleChangePass = this.handleChangePass.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChangeCorreo(event) {
     this.setState({valueCorreo: event.target.value});
@@ -43,38 +42,6 @@ class Popup extends React.Component {
         console.log(error);
       })
     }
-
-  //MACHETAZO NO SE INCLUYE ACA SINO EN PADRE
-    handleSubmit(event) {
-
-    //fetch(`http://localhost:3001/participantes?correo=${this.state.valueCorreo}&pass=${this.state.valuePass}`,{mode:'no-cors'})
-   //.then((response) => {
-   // console.log('componentDidUpdate')
-    //console.log(response)
-   //})
-      event.preventDefault();
-      axios.get('http://localhost:3001/participantes',{ params:{
-        correo: this.state.valueCorreo,
-        pass: this.state.valuePass
-      }})
-      .then(response => {
-        console.log('axioos: ', response.data)
-        return response
-      })
-      .then(function(response){
-
-        console.log("second callback response> ",response)
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  
-  }
-
-  componentDidUpdate(){
-   if(this.state.valueCorreo!=='' && this.state.valuePass!==''){
-   
-  }}
 
 
   render() {
@@ -113,8 +80,7 @@ class Auth extends Component {
      this.togglePopup = this.togglePopup.bind(this);
      this.formSubmit = this.formSubmit.bind(this);  
         this.state = {
-      showPopup: false,
-      data:''
+      showPopup: false
     };
    
     }
@@ -126,37 +92,14 @@ class Auth extends Component {
       formSubmit = (filterValue) =>  {
         console.log('formu submiit')
         this.setState({showPopup:false,
-                      data: filterValue.data});
-        console.log(this.state)
+                      });
+        this.props.userFunc(filterValue.data)
       
     }
 
-/*
-formSubmit(e){
- e.preventDefault();
- this.formSubmit = this.formSubmit.bind(this)
-   axios.get('http://localhost:3001/participantes',{ params:{
-        correo: e.target[0].value,
-        pass: e.target[1].value
-      }})
-      .then(response => {
-       console.log('axioos: ', response.data)
-        return response
-      })
-      .then(function(response){
-        console.log("second callback response> ",response)
-          this.setState({showPopup:false,
-                         data:response.data})
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-
-}
-*/
   
   render() {
-    return (
+    return (  Object.keys(this.props.usuario).length!==0? <h1 className='saludo'>Hola {this.props.usuario[0].name}</h1> :
       <Container className='containerAuth'>
         <Row>
               <Col lg="12">
@@ -178,6 +121,7 @@ formSubmit(e){
           />
           : null
         }
+         
             <Row>
             </Row>
      </Container>

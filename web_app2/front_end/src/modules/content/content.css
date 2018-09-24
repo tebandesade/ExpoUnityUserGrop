@@ -1,35 +1,57 @@
 .miContenido1 {
-	margin-top: 250px;
+	margin-top: 50px;
 }
 
 .imagen {
-	margin-left: 25%
+	margin-left: 25%;
+  width:180px;
+  height: 180px;
+
+
 }
 
 .img2015 {
   margin-top: 10%;
-  width: 80%;
-  height: 70%;
+  width: 700px;
+  height: 500px;
+    margin-bottom: 8%;
 }
 
 
 .img2016 {
   margin-top: 10%;
-  width: 80%;
-  height: 70%;
+  width: 700px;
+  height: 500px;
+  margin-bottom: 8%;
 }
 
 .img2017 {
   margin-top: 10%;
-  width: 90%;
-  height: 80%;
-  margin-bottom: 15%;
+  width: 700px;
+  height: 500px;
+  margin-bottom: 8%;
 }
 
 .img2018 {
   margin-top: 10%;
-  width: 80%;
-  height: 70%;
-  margin-bottom: 15%;
+  width: 700px;
+  height: 500px;
+  margin-bottom: 8%;
 }
 
+.textoProyecto {
+ position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.2em;
+  text-align:justify;
+}
+
+
+.logo_uug {
+  position: center;
+  width: 200px;
+  height: 200px;
+}

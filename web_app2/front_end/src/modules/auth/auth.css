@@ -1,7 +1,10 @@
 .containerAuth{
-	margin-top: 110px;
+	margin-top: 60px;
 }
-
+.saludo{
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
 .popup {
   position: fixed;
   width: 100%;

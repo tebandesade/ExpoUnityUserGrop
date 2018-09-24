@@ -26,6 +26,7 @@ class Header extends Component {
     });
   }
     toggle_tab = (tab) => {
+
  		this.props.tabFunc(tab)
     }
 
@@ -38,19 +39,19 @@ class Header extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>	
             <Nav className="ml-auto" navbar>
                <NavItem>
-                <Button onClick={()=>this.toggle_tab(0)} color="light" >Home</Button>
+                <Button onClick={()=>this.toggle_tab('0')} color="light" >Home</Button>
               </NavItem>
               <NavItem>
-                <Button onClick={()=>this.toggle_tab(1)} color="light">2015</Button>
+                <Button onClick={()=>this.toggle_tab('1')} color="light">2015</Button>
               </NavItem>
               <NavItem>
-                <Button onClick={()=>this.toggle_tab(2)} color="light">2016</Button>
+                <Button onClick={()=>this.toggle_tab('2')} color="light">2016</Button>
               </NavItem>
               <NavItem>
-                <Button onClick={()=>this.toggle_tab(3)} color="light">2017</Button>
+                <Button onClick={()=>this.toggle_tab('3')} color="light">2017</Button>
               </NavItem>
                <NavItem>
-                <Button onClick={()=>this.toggle_tab(4)} color="light">2018</Button>
+                <Button onClick={()=>this.toggle_tab('4')} color="light">2018</Button>
               </NavItem>	
             </Nav>
           </Collapse>

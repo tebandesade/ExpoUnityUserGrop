@@ -1,0 +1,110 @@
+[
+  {
+    "correo": "alpaca@abc.com",
+    "descripcion": "King of the Eggs es un party game 2D multijugador local, en el que tú y tus amigos encarnan a 4 huevos elegidos, en un torneo a muerte por obtener el privilegio de convertirse en rey. La feroz competencia los llevará a todos los rincones de la tierra de Eggorias donde deberán enfrentarse cáscara a cáscara. Todo esto a través de múltiples escenarios, que pondrán a prueba sus habilidades para controlar los huevos en el caos del campo de batalla. Los débiles han de quebrarse, y el campeón coronado será.",
+    "expoid": 3,
+    "id": 11,
+    "logourl": "/datos/expo2017/kingofeggs/logo.png",
+    "nombre": "King of the Eggs",
+    "owner": "prueba"
+  },
+  {
+    "correo": "mad@abc.com",
+    "descripcion": "Ekko es un juego desarrollado para dispositivos móviles. Ekko tiene como objetivo permitir a los jugadores tener un acercamiento a la cultura colombiana haciendo una abstracción de las diferentes regiones que componen nuestro país.Ekko es un juego de acertijos, donde el usuario tiene que organizar estratégicamente objetos dentro de un laberinto para que puedan llegar a su destino específico. Nuestro juego busca crear una experiencia auditiva y visual relajante, para que los jugadores puedan tomarse el tiempo para disfrutar y planificar sus movimientos.",
+    "expoid": 3,
+    "id": 10,
+    "logourl": "/datos/expo2017/ekko/logo.png",
+    "nombre": "Ekko",
+    "owner": "prueba"
+  },
+  {
+    "correo": "moontales@abc.com",
+    "descripcion": "Brawland es un juego frenético repleto de explosiones, diversión y ¡JETPACKS!!! Pon a prueba tu destreza en los diferentes modos de juego. Diviértete en una gran variedad de escenarios, desde mágicos planetas flotantes hasta mansiones embrujadas. Todas las locaciones se encuentran custodiadas por los alter-egos de nuestros excéntricos personajes. También podrás experimentar el modo multijugador, donde te enfrentarás a 5 de tus amigos. Deberás utilizar de manera precisa tu arsenal de bombas, flechas y toda clase de artilugios, en batallas épicas que te harán tronar hasta los dientes. El vencedor alcanzará la gloria, al ser el último en quedar en pie.",
+    "expoid": 3,
+    "id": 9,
+    "logourl": "/datos/expo2017/brawland/logo.png",
+    "nombre": "Brawland",
+    "owner": "prueba"
+  },
+  {
+    "correo": "camilo@abc.com",
+    "descripcion": "“A los borrachos los cuida el diablo“, o cuida tú al vaquero ebrio y ayúdalo a vencer la muerte esquivando sus  trampas, pero recuerda cuando estás ebrio todo es más difícil, incluso llegar a tu casa puede ser como cruzar un laberinto.",
+    "expoid": 2,
+    "id": 8,
+    "logourl": "/datos/expo2016/groggycowboy/logo.png",
+    "nombre": "Groggy Cowboy",
+    "owner": "prueba"
+  },
+  {
+    "correo": "navi@abc.com",
+    "descripcion": "Navitronx es un videojuego tipo árcade de naves, donde el jugador tiene como objetivo obtener el mayor número de puntos posibles en determinado tiempo o hasta morir. Muévete para esquivar a tus enemigos y dispara para eliminarlos.",
+    "expoid": 2,
+    "id": 7,
+    "logourl": "/datos/expo2016/navitronx/logo.jpg",
+    "nombre": "Navitronx",
+    "owner": "prueba"
+  },
+  {
+    "correo": "mambo@abc.com",
+    "descripcion": "Excitante juego de habilidad y puntería donde debes defender al mundo de una invasión de donuts extraterrestres que buscan convertir en dulce a la tierra. Coge poderes mágicos y acaba con todos estos graciosos enemigos. Escoge tu personaje y personaliza tu experiencia de juego con vistosos efectos, poderes, miras y disparos.",
+    "expoid": 2,
+    "id": 6,
+    "logourl": "/datos/expo2016/sugartown/logo.png",
+    "nombre": "Sugar Town",
+    "owner": "prueba"
+  },
+  {
+    "correo": "brother@abc.com",
+    "descripcion": "Survival Horror",
+    "expoid": 1,
+    "id": 5,
+    "logourl": "/datos/expo2015/brotherhood/logo.png",
+    "nombre": "Brotherhood of Shadows",
+    "owner": "prueba"
+  },
+  {
+    "correo": "rv4all@abc.com",
+    "descripcion": "Xalvador es un prototipo funcional de un videojuego implementado en Unity que use la tecnología de gafas de realidad virtual google cardboard y de esa manera diseñar un flujo de trabajo de bajo coste para el desarrollo de éste tipo de aplicaciones.",
+    "expoid": 1,
+    "id": 4,
+    "logourl": "/datos/expo2015/rv4all/logo.jpg",
+    "nombre": "Xalvador",
+    "owner": "prueba"
+  },
+  {
+    "correo": "un@abc.com",
+    "descripcion": "La aplicación móvil RunaShimi UN busca ser un juego de práctica de la lengua bajo un contexto cultural, el viaje que debe emprender el indígena nativo de Otavalo hasta llegar a lugares foráneos como Sesquilé y allí establecerse. El viaje también representa las diversas etapas de la vida y las distintas dimensiones culturales de la vida indígena: la Familia, la relación con la tierra, los viajes, el mercado, los tejidos, y la consolidación de un nuevo hogar. La historia es explicita en la cartilla dispuesta en la web y orienta la ruta de juego de la aplicación en el momento de resolver los diferentes retos y niveles propuestos con la comunidad",
+    "expoid": 1,
+    "id": 3,
+    "logourl": "/datos/expo2015/runashimi/logo.png",
+    "nombre": "Runashimi",
+    "owner": "prueba"
+  },
+  {
+    "correo": "ashara@abc.com",
+    "descripcion": "Exorciza a las criaturas del inframundo en tu libro de sombras.",
+    "expoid": 4,
+    "id": 0,
+    "logourl": "/datos/expo2018/exorcist/logo.png",
+    "nombre": "Exorcist",
+    "owner": "prueba"
+  },
+  {
+    "correo": "vrsalsa@abc.com",
+    "descripcion": "VR Salsa es un ambiente en realidad virtual que provee herramientas al usuario para adquirir habilidades básicas para bailar salsa, de forma efectiva, divertida, cómoda e intuitiva.",
+    "expoid": 4,
+    "id": 1,
+    "logourl": "/datos/expo2018/vrsalsa/logo.png",
+    "nombre": "VR Salsa",
+    "owner": "prueba"
+  },
+  {
+    "correo": "abc@prueba.com",
+    "descripcion": "es un sistema de inmersión por medio de realidad virtual que permite al observador explorar dos estructuras cardiovasculares: la primera es un corazón humano adulto sin patología estructural en movimiento, donde no sólo se observa la anatomía de las estructuras cardiacas, sino además, es posible apreciar la contracción cardiaca de manera cíclica; la segunda estructura es la Aorta, con una dinámica de tipo recorrido desde la parte descendente hasta la parte ascendente para finalizar observando la válvula aortica. Toda la información observada presenta un alto nivel de fidelidad respecto a un estudio estructural y dinámico (4D) de TAC (Tomografía Axial Computarizada) de un paciente adulto.  Adicionalmente, cuenta con la posibilidad de utilizar audio 3D, por lo tanto, la amplitud y origen del sonido variará según la posición visual del observador. Los sonidos implementados actualmente son segmentaciones pregrabadas de fonocardiograma.   Hemos considerado la denominación 5D para todo este conjunto de posible herramienta Enseñanza. El objetivo de la aplicación es contribuir al aprendizaje práctico en el campo de la morfofisiología. Gracias a los beneficios que presenta la nueva realidad virtual tecnológica, la actividad académica se vuelve más estimulante, puesto que permite tener una percepción de profundidad muy cercana a la de una disección, pero con un componente adicional que es la visualización de la contracción cardiaca.",
+    "expoid": 4,
+    "id": 2,
+    "logourl": "/datos/expo2018/shaio/logo.png",
+    "nombre": "Corazón Virtual - FCS",
+    "owner": "prueba"
+  }
+]

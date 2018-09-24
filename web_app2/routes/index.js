@@ -80,7 +80,7 @@ const findParticipantes = function(db,q, callback) {
   const collection = db.collection('participantes');
   // Find some documents
 console.log('query  test: ',q);
-  collection.find({correo:q.correo,pass:q.pass}).toArray(function(err, docs) {
+  collection.find({correo:q.correo,pass:q.pass},{fields:{_id:0}}).toArray(function(err, docs) {
     assert.equal(err, null);
     console.log("Found docs, count: ", docs.length);
     console.log(docs)
@@ -111,12 +111,12 @@ MongoClient.connect(url, function(err, client) {
 });
 }
 
-const findProyectos = function(db, callback) {
+const findProyectos = function(db, q, callback) {
   // Get the documents collection
   const collection = db.collection('proyectos');
   // Find some documents
 console.log('query  test: ',q);
-  collection.find({'expo':q.expo}).toArray(function(err, docs) {
+  collection.find({"expoid": parseInt(q.expoid)}).toArray(function(err, docs) {
     assert.equal(err, null);
     console.log("Found docs, count: ", docs.length);
     console.log(docs)
@@ -124,14 +124,12 @@ console.log('query  test: ',q);
   });
 }
 
-function getProyectos(callback){
+function getProyectos(q, callback){
 // Connection URL
 const url = 'mongodb://localhost:27017';
 
 // Database Name
 const dbName = 'unityusergroup';
-console.log('WHERE is q: ',q.correo);
-console.log(typeof(q))
 // Use connect method to connect to the server
 MongoClient.connect(url, function(err, client) {
   assert.equal(null, err);
@@ -181,7 +179,6 @@ router.get('/proyectos', function(req, res) {
 res.setHeader('Content-Type', 'application/json')
 
   getProyectos(req.query, (data)=>{
-    console.log('last ccallback ', data)
     res.send(data)
   })
  

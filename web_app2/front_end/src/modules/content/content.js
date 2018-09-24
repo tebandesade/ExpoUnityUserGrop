@@ -5,32 +5,68 @@ import logo2015 from '../expo/images/logo2015.jpg';
 import logo2016 from '../expo/images/logo2016.jpg';
 import logo2017 from '../expo/images/logo2017.jpg';
 import logo2018 from '../expo/images/logo2018.jpg';
+import logo from '../../logouug.png';
 import axios from 'axios';
 
 
-class Countries extends Component {
+class Proyectos extends Component {
+    constructor(props) {
+    super(props);
+  }
+
   render(){
-    const {data} = this.props;
-  const countries= data.map( proy =>{
-    console.log(data[2].logo)
+      
+    const update = (dueno) => {
+     
+      let {user} = this.props; 
+       console.log('nombre dueno: ', user)
+      try{
+
+      if(user[0].correo.toLowerCase()===dueno)
+      {
+
+        return (              <Row>
+              <Col sm="6">
+                <Button>Más</Button>
+              </Col>
+               <Col sm="6">
+                <Button>Editar</Button>
+              </Col>
+            </Row>)
+      }
+      else{
+
+        return <Button>Más</Button>
+      }
+    }
+    catch(error){
+
+       return <Button>Más</Button>
+          }
+  }
+    const {data} = this.props; 
+    
+  const proyectos= data.map( proy =>{
+
           return(
+                <Col lg="4">
                 <Card key={proy.id}body>
 
       
 
-                 <img className='imagen' src='/datos/expo2018/shaio/logo.png' alt="logo proyecto" height="50%" width="50%" />
+                 <img className='imagen' src={proy.logourl} alt="logo proyecto" height="50%" width="50%" />
     
                   <CardTitle>{proy.nombre}</CardTitle>
-                  <CardText>{proy.descripcion}</CardText>
-                  <Button>Go somewhere</Button>
+                  <CardText className='textoProyecto'>{proy.descripcion}</CardText>
+                  {update(proy.correo)}  
                 </Card>
+                    </Col>
   )
         })
   return(
     <Row>
-    <Col lg="4">
-        {countries}
-        </Col>
+{proyectos}
+
         </Row>
     )
 
@@ -38,23 +74,44 @@ class Countries extends Component {
 
 }
 
+
 class Content extends Component {
   constructor(props) {
     super(props);
-    this.state= { proyectos : [{id:0,expo:4,owner:'prueba',nombre:'Exorcist',descripcion:'Exorciza a las criaturas del inframundo en tu libro de sombras.',logo:"/datos/expo2018/exorcist/logo.png"},
-                                {id:1,expo:4,owner:'prueba',nombre:'VR Salsa',descripcion:'VR Salsa es un ambiente en realidad virtual que provee herramientas al usuario para adquirir habilidades básicas para bailar salsa, de forma efectiva, divertida, cómoda e intuitiva.',logo:'\datos\expo2018\vrsalsa\logo.png'},
-                                {id:2, expo:4,owner:'prueba',nombre:'Corazón Virtual - FCS',descripcion:'es un sistema de inmersión por medio de realidad virtual que permite al observador explorar dos estructuras cardiovasculares: la primera es un corazón humano adulto sin patología estructural en movimiento, donde no sólo se observa la anatomía de las estructuras cardiacas, sino además, es posible apreciar la contracción cardiaca de manera cíclica; la segunda estructura es la Aorta, con una dinámica de tipo recorrido desde la parte descendente hasta la parte ascendente para finalizar observando la válvula aortica. Toda la información observada presenta un alto nivel de fidelidad respecto a un estudio estructural y dinámico (4D) de TAC (Tomografía Axial Computarizada) de un paciente adulto.  Adicionalmente, cuenta con la posibilidad de utilizar audio 3D, por lo tanto, la amplitud y origen del sonido variará según la posición visual del observador. Los sonidos implementados actualmente son segmentaciones pregrabadas de fonocardiograma.   Hemos considerado la denominación 5D para todo este conjunto de posible herramienta Enseñanza. El objetivo de la aplicación es contribuir al aprendizaje práctico en el campo de la morfofisiología. Gracias a los beneficios que presenta la nueva realidad virtual tecnológica, la actividad académica se vuelve más estimulante, puesto que permite tener una percepción de profundidad muy cercana a la de una disección, pero con un componente adicional que es la visualización de la contracción cardiaca.',logo:'/datos/expo2018/shaio/logo.png'}
-                                ]}
+    this.state= { proyectos : []}
   }
 
- 
+  componentDidMount()
+  {
+       let tab_id = this.props.dataTab
+       let componentActual = this
+      if(this.state.proyectos.length===0){
+        axios.get('http://localhost:3001/getData')
+      .then(response => {
+        console.log('axioos: ', response.data)
+        return response
+      })
+      .then(function(response){
+     
+  return componentActual.setState({proyectos:response.data})
+})
+      .catch(function (error) {
+        console.log(error);
+      })
+      }
+  }
 
 
   render() {
     return (
       <Container className="tabcontent">
-      <TabContent className="miContenido" activeTab={String(this.props.dataTab)}>
+      <TabContent className="miContenido" activeTab={this.props.dataTab}>
           <TabPane  className="miContenido1" tabId="0">
+<Row>
+                 <Col lg="12">
+      <img className="logo_uug" src={logo} alt="logo"/>
+      </Col>
+      </Row>
            <Row>
               <Col lg="12">
                 <h1 >  <b>Bienvenidos a la web oficial del </b></h1>
@@ -77,6 +134,7 @@ class Content extends Component {
      <img className="img2015" src={logo2015} alt="logo"/>
       </Col>
       </Row>
+          <Proyectos data={this.state.proyectos.filter(obj=> obj.expoid===1)} user={this.props.user}></Proyectos>
           </TabPane>
                     <TabPane  className="miContenido2" tabId="2">
              <Row>
@@ -85,8 +143,8 @@ class Content extends Component {
       </Col>
         </Row>
         
-        
-        <Countries data={this.state.proyectos}></Countries>
+          <Proyectos data={this.state.proyectos.filter(obj=> obj.expoid===2)}user={this.props.user}></Proyectos>
+      
         
           </TabPane>
                     <TabPane  className="miContenido2" tabId="3">
@@ -95,6 +153,7 @@ class Content extends Component {
      <img className="img2017" src={logo2017} alt="logo"/>
       </Col>
         </Row>
+            <Proyectos data={this.state.proyectos.filter(obj=> obj.expoid===3)}user={this.props.user}></Proyectos>
           </TabPane>
                     <TabPane  className="miContenido2" tabId="4">
            <Row>
@@ -102,6 +161,7 @@ class Content extends Component {
      <img className="img2018" src={logo2018} alt="logo"/>
       </Col>
         </Row>
+            <Proyectos data={this.state.proyectos.filter(obj=> obj.expoid===4)}user={this.props.user}></Proyectos>
           </TabPane>
         </TabContent>
     </Container>
